@@ -42,9 +42,9 @@ jobs:
       run: zig build -Doptimize=ReleaseSmall -Dtarget=${{ matrix.target }}
 
     - name: Rename
-      run: mv zig-out/bin/fileroot zig-out/bin/fileroot-${{ matrix.target }}
+      run: mv zig-out/bin/fileroot* zig-out/bin/fileroot-${{ matrix.target }}
 
     - name: Release
       uses: softprops/action-gh-release@v1
       with:
-        files: zig-out/bin/fileroot-${{ matrix.target }}
+        files: zig-out/bin/*
