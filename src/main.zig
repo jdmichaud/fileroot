@@ -9,8 +9,8 @@ pub fn main() !u8 {
 
   const stdout = std.io.getStdOut();
   const stdout_w = stdout.writer();
-      
-  if (std.mem.eql(u8, args[1], "--help") or std.mem.eql(u8, args[1], "-h")) {
+
+  if (args.len <= 1 or std.mem.eql(u8, args[1], "--help") or std.mem.eql(u8, args[1], "-h")) {
     try stdout_w.writeAll("Usage: fileroot NAME ...\n");
     try stdout_w.writeAll("Print the path file root\n");
     try stdout_w.writeAll("\n");
